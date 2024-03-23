@@ -25,10 +25,10 @@ jobs:
       # Cache node_modules
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
           cache: 'npm'
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm install
       - uses: nrwl/nx-set-shas@v4
-
       - run: npx nx-cloud record -- nx format:check
       - run: npx nx affected -t lint test build
