@@ -1,0 +1,32 @@
+{
+  "name": "is-odd",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/is-odd/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/is-odd",
+        "main": "libs/is-odd/src/index.ts",
+        "tsConfig": "libs/is-odd/tsconfig.lib.json",
+        "assets": ["libs/is-odd/*.md"]
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
+    }
+  },
+  "tags": [],
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  }
+}
