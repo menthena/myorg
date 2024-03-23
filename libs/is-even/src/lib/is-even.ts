@@ -1,3 +1,3 @@
 export function isEven(): string {
-  return 'is-even';
+  return 'is-odd';
 }
